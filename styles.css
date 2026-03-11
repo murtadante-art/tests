@@ -1,0 +1,84 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0f0f;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #f0f0f0;
+}
+
+.hidden { display: none !important; }
+
+/* ── Loading ── */
+#loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+#loading-screen p {
+  color: #666;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 3px solid #222;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Box ── */
+.box {
+  text-align: center;
+  padding: 3rem 3.5rem;
+  border-radius: 16px;
+  border: 1px solid #222;
+  animation: pop 0.4s ease;
+  max-width: 380px;
+  width: 90%;
+}
+
+.denied-box  { background: #110808; border-color: #3a0f0f; }
+.success-box { background: #081108; border-color: #0f3a0f; }
+
+.icon { font-size: 3rem; margin-bottom: 1rem; }
+
+h1 {
+  font-size: 1.8rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+
+.denied-box  h1 { color: #ff4444; }
+.success-box h1 { color: #44ff88; }
+
+p { color: #777; font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+/* ── IP Badge ── */
+.ip-badge {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+.denied-ip  { background: #1e0808; border: 1px solid #3a1111; color: #ff6666; }
+.success-ip { background: #081e08; border: 1px solid #113a11; color: #66ff99; }
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
