@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Test</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p>جارٍ التحقق من الهوية…</p>
+  </div>
+
+  <div id="denied-screen" class="hidden">
+    <div class="box denied-box">
+      <div class="icon">⛔</div>
+      <h1>Access Denied</h1>
+      <p>غير مصرّح لهذا الجهاز بالوصول</p>
+      <div class="fp-badge denied-fp" id="visitor-fp"></div>
+    </div>
+  </div>
+
+  <div id="main-content" class="hidden">
+    <div class="box success-box">
+      <div class="icon">✅</div>
+      <h1>Access Granted</h1>
+      <p>مرحباً، تم التحقق من جهازك بنجاح</p>
+      <div class="fp-badge success-fp" id="allowed-fp"></div>
+    </div>
+  </div>
+
+  <script>
+    // مكتبة FingerprintJS
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js';
+    script.onload = () => { initCheck(); };
+    document.head.appendChild(script);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
